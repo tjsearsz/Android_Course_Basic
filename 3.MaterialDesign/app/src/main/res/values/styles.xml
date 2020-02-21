@@ -67,10 +67,23 @@
         <item name="android:layout_height">wrap_content</item>
     </style>
 
+    <!-- Style applied for the toolbar-->
     <style name="ToolBarStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/GreenRadioButton</item>
     </style>
 
+    <!-- Style applied for the base linear layout -->
+    <style name="BaseLinearLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:baselineAligned">false</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="ScrollViewDefault">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+    </style>
 </resources>
