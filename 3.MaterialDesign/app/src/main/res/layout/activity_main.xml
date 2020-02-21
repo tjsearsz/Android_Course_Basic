@@ -2,7 +2,8 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -12,19 +13,11 @@
 
         <TextView
             android:id="@+id/date1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
             android:text="@string/feb_10_2016"
-            android:textStyle="bold"
+            style="@style/DateText"/>
 
-            />
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            >
+            style="@style/CardViewStyle">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -72,17 +65,11 @@
 
         <TextView
             android:id="@+id/date2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
             android:text="@string/feb_9_2016"
-            android:textStyle="bold" />
+            style="@style/DateText"/>
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp">
+            style="@style/CardViewStyle">
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -129,17 +116,11 @@
 
         <TextView
             android:id="@+id/date3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="20dp"
             android:text="@string/feb_6_2016"
-            android:textStyle="bold" />
+            style="@style/DateText"/>
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
+            style="@style/CardViewStyle"
             android:id="@+id/cardid1">
 
             <RelativeLayout
@@ -235,19 +216,11 @@
 
         <TextView
             android:id="@+id/date4"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:padding="20dp"
             android:text="@string/feb_6_2016"
-            android:textStyle="bold" />
+            style="@style/DateText"/>
 
         <androidx.cardview.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp">
+            style="@style/CardViewStyle.LastCard">
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -340,5 +313,14 @@
                     android:text="@string/_6_00pm" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/floating1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="20dp"
+            android:backgroundTint="@color/GreenRadioButton"
+            app:borderWidth="0dp"/>
     </LinearLayout>
 </ScrollView>
