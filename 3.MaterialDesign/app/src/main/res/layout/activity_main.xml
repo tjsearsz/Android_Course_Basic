@@ -316,11 +316,7 @@
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floating1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_margin="20dp"
-            android:backgroundTint="@color/GreenRadioButton"
-            app:borderWidth="0dp"/>
+            app:borderWidth="0dp"
+            style="@style/FloatingButtonStyle"/>
     </LinearLayout>
 </ScrollView>
