@@ -10,6 +10,9 @@
         android:orientation="vertical"
         tools:context=".MainActivity">
 
+        <androidx.appcompat.widget.Toolbar
+            style="@style/ToolBarStyle"/>
+
         <TextView
             android:id="@+id/date1"
             android:text="@string/feb_10_2016"

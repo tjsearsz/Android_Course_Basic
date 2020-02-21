@@ -32,7 +32,7 @@
     <!-- Style applied to al texts displaying the reminder -->
     <style name="DateText.ReminderText">
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:ems">20</item>
+        <item name="android:ems">15</item>
         <item name="android:textStyle">normal</item>
     </style>
 
@@ -65,6 +65,12 @@
     <style name="RelativeLayoutCardView">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="ToolBarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/GreenRadioButton</item>
     </style>
 
 </resources>
