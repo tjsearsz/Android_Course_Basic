@@ -16,8 +16,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //setViewAndChildrenEnabled(findViewById(R.id.cardid1),false);
-        //setViewAndChildrenEnabled(findViewById(R.id.cardid2),false);
+        //Disabling last two cardviews
+        setViewAndChildrenEnabled(findViewById(R.id.cardid1),false);
+        setViewAndChildrenEnabled(findViewById(R.id.cardid2),false);
 
         FloatingActionButton floatingButton = findViewById(R.id.floating1);
         floatingButton.setOnClickListener(new View.OnClickListener(){

@@ -2,8 +2,7 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -19,46 +18,31 @@
         <androidx.cardview.widget.CardView
             style="@style/CardViewStyle">
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/RelativeLayoutCardView">
 
                 <TextView
                     android:id="@+id/reminder1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:ems="10"
-                    android:padding="20dp"
+                    style="@style/DateText.ReminderText"
                     android:text="@string/interview_at_google" />
 
                 <RadioButton
                     android:id="@+id/radioButton1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignBaseline="@id/reminder1"
                     android:layout_alignEnd="@id/reminder1"
-                    android:layout_alignParentEnd="true"
-                    android:layoutDirection="rtl"
-                    android:buttonTint="@color/GreenRadioButton"
+                    style="@style/RadioButtonStyle"
                     android:text="@string/_12_30" />
 
                 <TextView
                     android:id="@+id/reminder2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_below="@+id/reminder1"
-                    android:ems="10"
-                    android:padding="20dp"
+                    style="@style/DateText.ReminderText"
                     android:text="@string/pick_up_the_kids" />
 
                 <RadioButton
                     android:id="@+id/radioButton2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignBaseline="@id/reminder2"
                     android:layout_alignEnd="@id/reminder1"
-                    android:layout_alignParentEnd="true"
-                    android:layoutDirection="rtl"
-                    android:buttonTint="@color/GreenRadioButton"
+                    style="@style/RadioButtonStyle"
                     android:text="@string/_4_30pm" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -71,45 +55,32 @@
         <androidx.cardview.widget.CardView
             style="@style/CardViewStyle">
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/RelativeLayoutCardView">
 
                 <TextView
                     android:id="@+id/reminder3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="20dp"
+                    style="@style/DateText.ReminderText"
                     android:text="@string/brain_s_birthday_party" />
 
                 <RadioButton
                     android:id="@+id/radioButton3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignBaseline="@id/reminder3"
                     android:layout_alignEnd="@id/reminder3"
-                    android:layout_alignParentEnd="true"
-                    android:layoutDirection="rtl"
-                    android:buttonTint="@color/GreenRadioButton"
+                    style="@style/RadioButtonStyle"
                     android:text="@string/_7_00pm" />
 
                 <TextView
                     android:id="@+id/reminder4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_below="@+id/reminder3"
-                    android:padding="20dp"
                     android:text="@string/first_project_due_and_start_second_project"
-                    android:ems="10"/>
+                    style="@style/DateText.ReminderText"
+                    />
 
                 <RadioButton
                     android:id="@+id/radioButton4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignBaseline="@id/reminder4"
                     android:layout_alignEnd="@id/reminder4"
-                    android:layout_alignParentEnd="true"
-                    android:layoutDirection="rtl"
-                    android:buttonTint="@color/GreenRadioButton"
+                    style="@style/RadioButtonStyle"
                     android:text="@string/_9_30pm" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -124,92 +95,58 @@
             android:id="@+id/cardid1">
 
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                style="@style/RelativeLayoutCardView">
 
                 <TextView
                     android:id="@+id/reminder5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="20dp"
+                    style="@style/DateText.ReminderText"
                     android:text="@string/finish_first_iteration_before_sleep"
-                    android:ems="10"/>
+                    />
 
                 <RadioButton
                     android:id="@+id/radioButton5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignBaseline="@id/reminder5"
-                    android:checked="true"
                     android:layout_alignEnd="@id/reminder5"
-                    android:alpha="0.3"
-                    android:layout_alignParentEnd="true"
-                    android:layoutDirection="rtl"
-                    android:buttonTint="@color/GreenRadioButton"
+                    style="@style/RadioButtonStyle.CheckedOnes"
                     android:text="@string/_9_00pm" />
 
                 <TextView
                     android:id="@+id/reminder6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_below="@+id/reminder5"
-                    android:ems="10"
-                    android:padding="20dp"
+                    style="@style/DateText.ReminderText"
                     android:text="@string/dinner_at_partycity" />
 
                 <RadioButton
                     android:id="@+id/radioButton6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:checked="true"
                     android:layout_alignBaseline="@id/reminder6"
                     android:layout_alignEnd="@id/reminder6"
-                    android:layout_alignParentEnd="true"
-                    android:buttonTint="@color/GreenRadioButton"
-                    android:alpha="0.3"
-                    android:layoutDirection="rtl"
+                    style="@style/RadioButtonStyle.CheckedOnes"
                     android:text="@string/_7_00pm" />
 
                 <TextView
                     android:id="@+id/reminder7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_below="@+id/reminder6"
-                    android:padding="20dp"
+                    style="@style/DateText.ReminderText"
                     android:text="@string/bring_laptop_to_the_meeting" />
 
                 <RadioButton
                     android:id="@+id/radioButton7"
-                    android:layout_width="wrap_content"
-                    android:checked="true"
-                    android:layout_height="wrap_content"
                     android:layout_alignBaseline="@id/reminder7"
-                    android:alpha="0.3"
                     android:layout_alignEnd="@id/reminder7"
-                    android:layout_alignParentEnd="true"
-                    android:layoutDirection="rtl"
-                    android:buttonTint="@color/GreenRadioButton"
+                    style="@style/RadioButtonStyle.CheckedOnes"
                     android:text="@string/_8_00pm" />
 
                 <TextView
                     android:id="@+id/reminder8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_below="@+id/reminder7"
-                    android:padding="20dp"
+                    style="@style/DateText.ReminderText"
                     android:text="@string/leg_day" />
 
                 <RadioButton
                     android:id="@+id/radioButton8"
-                    android:checked="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignBaseline="@id/reminder8"
-                    android:alpha="0.3"
                     android:layout_alignEnd="@id/reminder8"
-                    android:layout_alignParentEnd="true"
-                    android:buttonTint="@color/GreenRadioButton"
-                    android:layoutDirection="rtl"
+                    style="@style/RadioButtonStyle.CheckedOnes"
                     android:text="@string/_6_00pm" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
@@ -223,100 +160,64 @@
             style="@style/CardViewStyle.LastCard">
 
             <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/cardid2">
+                android:id="@+id/cardid2"
+                style="@style/RelativeLayoutCardView">
 
                 <TextView
                     android:id="@+id/reminder9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="20dp"
-                    android:ems="10"
+                    style="@style/DateText.ReminderText"
                     android:text="@string/finish_first_iteration_before_sleep" />
 
                 <RadioButton
                     android:id="@+id/radioButton9"
-                    android:checked="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignBaseline="@id/reminder9"
-                    android:alpha="0.3"
                     android:layout_alignEnd="@id/reminder9"
-                    android:layout_alignParentEnd="true"
-                    android:layoutDirection="rtl"
-                    android:buttonTint="@color/GreenRadioButton"
+                    style="@style/RadioButtonStyle.CheckedOnes"
                     android:text="@string/_9_00pm" />
 
                 <TextView
                     android:id="@+id/reminder10"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_below="@+id/reminder9"
-                    android:ems="10"
-                    android:padding="20dp"
+                    style="@style/DateText.ReminderText"
                     android:text="@string/dinner_at_partycity" />
 
                 <RadioButton
                     android:id="@+id/radioButton10"
-                    android:checked="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_alignBaseline="@id/reminder10"
                     android:layout_alignEnd="@id/reminder10"
-                    android:layout_alignParentEnd="true"
-                    android:alpha="0.3"
-                    android:layoutDirection="rtl"
-                    android:buttonTint="@color/GreenRadioButton"
+                    style="@style/RadioButtonStyle.CheckedOnes"
                     android:text="@string/_7_00pm" />
 
                 <TextView
                     android:id="@+id/reminder11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_below="@+id/reminder10"
-                    android:padding="20dp"
+                    style="@style/DateText.ReminderText"
                     android:text="@string/bring_laptop_to_the_meeting" />
 
                 <RadioButton
                     android:id="@+id/radioButton11"
-                    android:checked="true"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
+                    style="@style/RadioButtonStyle.CheckedOnes"
                     android:layout_alignBaseline="@id/reminder11"
                     android:layout_alignEnd="@id/reminder11"
-                    android:layout_alignParentEnd="true"
-                    android:alpha="0.3"
-                    android:layoutDirection="rtl"
-                    android:buttonTint="@color/GreenRadioButton"
                     android:text="@string/_8_00pm" />
 
                 <TextView
                     android:id="@+id/reminder12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
                     android:layout_below="@+id/reminder11"
-                    android:padding="20dp"
+                    style="@style/DateText.ReminderText"
                     android:text="@string/leg_day" />
 
                 <RadioButton
-                    android:checked="true"
                     android:id="@+id/radioButton12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:alpha="0.3"
                     android:layout_alignBaseline="@id/reminder12"
                     android:layout_alignEnd="@id/reminder12"
-                    android:layout_alignParentEnd="true"
-                    android:layoutDirection="rtl"
-                    android:buttonTint="@color/GreenRadioButton"
+                    style="@style/RadioButtonStyle.CheckedOnes"
                     android:text="@string/_6_00pm" />
             </RelativeLayout>
         </androidx.cardview.widget.CardView>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/floating1"
-            app:borderWidth="0dp"
             style="@style/FloatingButtonStyle"/>
     </LinearLayout>
 </ScrollView>

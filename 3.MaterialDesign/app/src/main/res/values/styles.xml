@@ -28,7 +28,14 @@
         <item name="android:padding">20dp</item>
         <item name="android:textStyle">bold</item>
     </style>
-    
+
+    <!-- Style applied to al texts displaying the reminder -->
+    <style name="DateText.ReminderText">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:ems">20</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <!-- Style applied to the floating button-->
     <style name ="FloatingButtonStyle">
         <item name="android:layout_width" >wrap_content</item>
@@ -36,6 +43,28 @@
         <item name="android:layout_gravity">end|bottom</item>
         <item name="android:layout_margin">20dp</item>
         <item name="android:backgroundTint">@color/GreenRadioButton</item>
+        <item name="backgroundTint">@color/GreenRadioButton</item>
+    </style>
+
+    <!-- Style applied to RadioButton -->
+    <style name="RadioButtonStyle">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:layoutDirection">rtl</item>
+        <item name="android:buttonTint">@color/GreenRadioButton</item>
+    </style>
+
+    <!-- Style applied to the buttons on disabled Card Views-->
+    <style name="RadioButtonStyle.CheckedOnes">
+        <item name="android:checked">true</item>
+        <item name="android:alpha">0.3</item>
+    </style>
+
+    <!-- Style applied to the Relative Layout inside Card Views -->
+    <style name="RelativeLayoutCardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
     </style>
 
 </resources>
