@@ -1,8 +1,10 @@
-package com.teddysears.Interface;
+package com.teddysears.Interface.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.teddysears.Interface.R;
 
 public class MainActivity extends AppCompatActivity {
 
