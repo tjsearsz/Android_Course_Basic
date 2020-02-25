@@ -11,6 +11,5 @@ public interface IMainActivityContract {
 
     //Method sings for this activity
     RecyclerView GetRecyclerView();
-    void SetRecyclerView(RecyclerView list);
     Context GetCurrentContext();
 }

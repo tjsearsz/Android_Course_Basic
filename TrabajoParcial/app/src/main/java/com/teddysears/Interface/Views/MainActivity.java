@@ -41,11 +41,6 @@ public class MainActivity extends AppCompatActivity implements IMainActivityCont
     }
 
     @Override
-    public void SetRecyclerView(RecyclerView list) {
-        this.taskslist = list;
-    }
-
-    @Override
     public Context GetCurrentContext() {
         return this.getApplicationContext();
     }
