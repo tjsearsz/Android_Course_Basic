@@ -3,6 +3,7 @@ package com.teddysears.Interface.Views;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import com.teddysears.Interface.Contracts.IMainActivityContract;
@@ -15,6 +16,7 @@ import com.teddysears.Interface.R;
 public class MainActivity extends AppCompatActivity implements IMainActivityContract {
 
     private RecyclerView taskslist;
+
     /**
      * Method to be performed when the view is being created
      * @param savedInstanceState
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity implements IMainActivityCont
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        this.taskslist = findViewById(R.id.rv_main);
 
         //Passing this view to the presenter
         MainActivityPresenter presenter = new MainActivityPresenter(this);
@@ -39,5 +43,10 @@ public class MainActivity extends AppCompatActivity implements IMainActivityCont
     @Override
     public void SetRecyclerView(RecyclerView list) {
         this.taskslist = list;
+    }
+
+    @Override
+    public Context GetCurrentContext() {
+        return this.getApplicationContext();
     }
 }

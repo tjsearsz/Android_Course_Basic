@@ -1,5 +1,7 @@
 package com.teddysears.Interface.Contracts;
 
+import android.content.Context;
+
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
@@ -10,4 +12,5 @@ public interface IMainActivityContract {
     //Method sings for this activity
     RecyclerView GetRecyclerView();
     void SetRecyclerView(RecyclerView list);
+    Context GetCurrentContext();
 }
