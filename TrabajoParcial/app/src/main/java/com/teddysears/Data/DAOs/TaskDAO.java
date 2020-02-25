@@ -30,6 +30,12 @@ public class TaskDAO implements IGeneralDao {
         list.add(DomainFactory.GetTask("Go to the beach",
                 "relaxing task", Utils.GetNewDateBasedOnString("26/02/2020")));
 
+        list.add(DomainFactory.GetTask("go to the church",
+                "relaxing task", Utils.GetNewDateBasedOnString("26/02/2020")));
+
+        list.add(DomainFactory.GetTask("Go to the nasa",
+                "relaxing task", Utils.GetNewDateBasedOnString("26/02/2020")));
+
         return list;
     }
 }

@@ -24,7 +24,6 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
 
     //Attributes of the Adapter
     private List<Entity> listOfTasks;
-    private TextView Task;
 
     /**
      * Constructor that receives the list of tasks
@@ -42,6 +41,8 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
 
         //Attributes (the element that are in the view and we will hold)
         public TextView title;
+        public TextView title2;
+        public TextView title3;
 
         /**
          * Constructor of the hold class that will get all the elements
@@ -50,6 +51,8 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
         public MainActivityViewHolder(@NonNull View itemView) {
             super(itemView);
             this.title = itemView.findViewById(R.id.title);
+            this.title2 = itemView.findViewById(R.id.title2);
+            this.title3 = itemView.findViewById(R.id.title3);
         }
     }
 
@@ -63,7 +66,7 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
     @Override
     public MainActivityViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        //When we create a niew holder, we need to perform this inflate
+        //When we create a view holder, we need to perform this inflate
         View tasksView = LayoutInflater.from(parent.getContext()).inflate(R.layout.task_item, parent , false);
         return new MainActivityViewHolder(tasksView);
     }
@@ -82,8 +85,14 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
         //Add the title
         TextView title = holder.title;
 
+        TextView title2 = holder.title2;
+
+        TextView title3 = holder.title3;
+
         //Set text in the view
         title.setText(TaskBeingManipulated.getTitle());
+        title2.setText(TaskBeingManipulated.getTitle());
+        title3.setText(TaskBeingManipulated.getTitle());
     }
 
     /**
