@@ -63,6 +63,7 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
     @Override
     public MainActivityViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
+        //When we create a niew holder, we need to perform this inflate
         View tasksView = LayoutInflater.from(parent.getContext()).inflate(R.layout.task_item, parent , false);
         return new MainActivityViewHolder(tasksView);
     }
@@ -74,10 +75,14 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
      */
     @Override
     public void onBindViewHolder(@NonNull MainActivityAdapter.MainActivityViewHolder holder, int position) {
+
+        //Here, we obtain the task
         Task TaskBeingManipulated = (Task) listOfTasks.get(position);
 
+        //Add the title
         TextView title = holder.title;
 
+        //Set text in the view
         title.setText(TaskBeingManipulated.getTitle());
     }
 

@@ -14,7 +14,8 @@ import java.util.List;
 /**
  * Presenter of the Main Activity View
  */
-public class MainActivityPresenter {
+public class
+MainActivityPresenter {
 
     //Attributes of the class
     private IMainActivityContract activity;
@@ -37,12 +38,14 @@ public class MainActivityPresenter {
         ICommand<Entity, List<Entity>> command = CommandFactory.CreateNewGetAllTasksCommand();
         List<Entity> tasks = command.execute(null);
 
+        //Creating an adapter for the ReyclerView
         MainActivityAdapter adapter = new MainActivityAdapter(tasks);
 
+        //Setting the adapter
         activity.GetRecyclerView().setAdapter(adapter);
 
+        //Creating a new Linear Layout for the list
         RecyclerView.LayoutManager manager = new LinearLayoutManager(activity.GetCurrentContext());
-
         activity.GetRecyclerView().setLayoutManager(manager);
     }
 }
