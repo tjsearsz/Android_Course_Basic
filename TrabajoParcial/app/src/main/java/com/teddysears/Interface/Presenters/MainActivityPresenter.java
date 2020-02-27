@@ -14,8 +14,7 @@ import java.util.List;
 /**
  * Presenter of the Main Activity View
  */
-public class
-MainActivityPresenter {
+public class MainActivityPresenter {
 
     //Attributes of the class
     private IMainActivityContract activity;

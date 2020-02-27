@@ -18,6 +18,7 @@ import com.teddysears.Interface.R;
  */
 public class MainActivity extends AppCompatActivity implements IMainActivityContract {
 
+    //Attributes of the class
     private RecyclerView taskslist;
     private FloatingActionButton floatingButton;
 
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivityCont
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Asigning the values of the Views
         this.taskslist = findViewById(R.id.rv_main);
         this.floatingButton = findViewById(R.id.TaskCreationButton);
 

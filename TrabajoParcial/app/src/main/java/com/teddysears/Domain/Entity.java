@@ -18,7 +18,7 @@ public class Entity {
 
     /**
      * Constructor that receives the ID of the entity
-     * @param id The id of the entitty
+     * @param id The id of the entity
      */
     public Entity(int id)
     {

@@ -68,6 +68,14 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
 
         //When we create a view holder, we need to perform this inflate
         View tasksView = LayoutInflater.from(parent.getContext()).inflate(R.layout.task_item, parent , false);
+
+        tasksView.OnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                
+            }
+        });
+
         return new MainActivityViewHolder(tasksView);
     }
 
