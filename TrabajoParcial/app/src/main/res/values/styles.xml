@@ -70,6 +70,8 @@
     <!-- Specific style for the Title TextView in CardView-->
     <style name="GlobalViewStyleInCardView.Title">
         <item name="android:layout_centerInParent">true</item>
+        <item name="android:ems">20</item>
+        <item name="android:gravity">center</item>
     </style>
 
     <!-- Specific style for the CheckBox in CardView-->

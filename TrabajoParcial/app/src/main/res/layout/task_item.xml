@@ -7,14 +7,11 @@
 
     <TextView
         android:id="@+id/Year"
-        style="@style/YearCardViewStyle"
-        android:text="supertyletext" />
+        style="@style/YearCardViewStyle"/>
 
     <TextView
         android:id="@+id/Date"
-        style="@style/DateCardViewStyle"
-
-        android:text="MAYO 15" />
+        style="@style/DateCardViewStyle"/>
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
@@ -30,8 +27,7 @@
 
             <TextView
                 android:id="@+id/title"
-                style="@style/GlobalViewStyleInCardView.Title"
-                android:text="go to the church" />
+                style="@style/GlobalViewStyleInCardView.Title" />
 
             <CheckBox
                 android:id="@+id/isCompleted"
