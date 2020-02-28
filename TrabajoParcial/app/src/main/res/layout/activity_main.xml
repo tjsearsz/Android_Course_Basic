@@ -6,9 +6,10 @@
     tools:context=".Views.MainActivity"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <androidx.recyclerview.widget.RecyclerView
             android:layout_width="match_parent"
@@ -17,14 +18,13 @@
             android:id="@+id/rv_main"/>
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_below="@id/rv_main"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_anchorGravity="end|bottom"
             android:id="@+id/TaskCreationButton"
             android:layout_margin="20dp"
-            android:layout_alignEnd="@id/rv_main"
+            android:layout_gravity="end"
             />
 
-    </RelativeLayout>
+    </LinearLayout>
 </ScrollView>

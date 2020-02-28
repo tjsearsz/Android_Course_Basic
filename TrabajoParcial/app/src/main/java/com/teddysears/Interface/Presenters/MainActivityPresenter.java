@@ -38,7 +38,7 @@ public class MainActivityPresenter {
         List<Entity> tasks = command.execute(null);
 
         //Creating an adapter for the ReyclerView
-        MainActivityAdapter adapter = new MainActivityAdapter(tasks, activity.GetCurrentContext());
+        MainActivityAdapter adapter = new MainActivityAdapter(tasks);
 
         //Setting the adapter
         activity.GetRecyclerView().setAdapter(adapter);

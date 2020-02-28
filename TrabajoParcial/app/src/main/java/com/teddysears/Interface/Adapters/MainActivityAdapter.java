@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -27,17 +28,14 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
 
     //Attributes of the Adapter
     private List<Entity> listOfTasks;
-    private Context context;
 
     /**
      * Constructor that receives the list of tasks
      * @param ListOfTasks Tasks we will adapt to the RecyclerView
-     * @param context  The context of all the application
      */
-    public MainActivityAdapter(List<Entity> ListOfTasks, Context context)
+    public MainActivityAdapter(List<Entity> ListOfTasks)
     {
         this.listOfTasks = ListOfTasks;
-        this.context = context;
     }
 
     /**
@@ -46,9 +44,10 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
     public static class MainActivityViewHolder extends RecyclerView.ViewHolder {
 
         //Attributes (the element that are in the view and we will hold)
+        public TextView date;
+        public TextView time;
         public TextView title;
-        public TextView title2;
-        public TextView title3;
+        public CheckBox completed;
         public View CardView;
 
         /**
@@ -57,10 +56,11 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
          */
         public MainActivityViewHolder(@NonNull View itemView) {
             super(itemView);
+            this.date = itemView.findViewById(R.id.Date);
+            this.time = itemView.findViewById(R.id.time);
             this.title = itemView.findViewById(R.id.title);
-            this.title2 = itemView.findViewById(R.id.title2);
-            this.title3 = itemView.findViewById(R.id.title3);
-            this.CardView = itemView;
+            this.completed = itemView.findViewById(R.id.isCompleted);
+            this.CardView = itemView.findViewById(R.id.cardView);
         }
     }
 
@@ -90,27 +90,25 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
         //Here, we obtain the task
         final Task TaskBeingManipulated = (Task) listOfTasks.get(position);
 
-        //Add the title
+        //Getting views from the holder
+        TextView dateOfTask = holder.date;
+        TextView timeOfTask = holder.time;
         TextView title = holder.title;
-
-        TextView title2 = holder.title2;
-
-        TextView title3 = holder.title3;
-
+        CheckBox isCompleted = holder.completed;
         final View CardView = holder.CardView;
 
-        //Set text in the view
-        title.setText(TaskBeingManipulated.getTitle());
-        title2.setText(TaskBeingManipulated.getTitle());
-        title3.setText(TaskBeingManipulated.getTitle());
+        //Setting the information
 
-        //Creating the listener used to instanciate the activity when the user presses a task
+        title.setText(TaskBeingManipulated.getTitle());
+        isCompleted.setChecked(TaskBeingManipulated.isAlreadyFinished());
+
+        //Creating the listener used to instantiate the activity when the user presses a task
         CardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                 //We create a new intent
-                Intent intent = new Intent(context, task_creation.class);
+                Intent intent = new Intent(CardView.getContext(), task_creation.class);
 
                 //Passing parameters
                 intent.putExtra("Name", TaskBeingManipulated.getTitle());
