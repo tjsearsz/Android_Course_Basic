@@ -4,7 +4,6 @@ import com.teddysears.Data.IDao.IGeneralDao;
 import com.teddysears.Domain.DomainFactory;
 import com.teddysears.Domain.Entity;
 import com.teddysears.Utility.DateUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,6 +19,7 @@ public class TaskDAO implements IGeneralDao {
     {
 
     }
+
     /**
      * Implementing the method for getting all the tasks
      * @return All the tasks

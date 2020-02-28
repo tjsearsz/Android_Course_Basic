@@ -1,6 +1,5 @@
 package com.teddysears.Interface.Adapters;
 
-import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -171,7 +170,7 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
         /*
          * If the current month/day is the same as the last one, we will not display it again
          */
-        if(!yearmonth.equals(DateUtils.MonthDayDateToString(taskBeingManipulated.getDate())))
+        if(!this.yearmonth.equals(DateUtils.MonthDayDateToString(taskBeingManipulated.getDate())))
         {
             //Setting the value in the text view and saving the variable
             dateOfTask.setText(DateUtils.MonthDayDateToString(taskBeingManipulated.getDate()));

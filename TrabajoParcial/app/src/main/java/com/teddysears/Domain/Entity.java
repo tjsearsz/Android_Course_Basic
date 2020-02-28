@@ -23,7 +23,6 @@ public class Entity {
     public Entity(int id)
     {
         this.id = id;
-        this.id = id;
     }
 
     public int getId() {

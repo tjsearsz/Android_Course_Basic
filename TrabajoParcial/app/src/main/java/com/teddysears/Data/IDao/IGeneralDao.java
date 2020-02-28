@@ -9,6 +9,9 @@ import java.util.List;
  */
 public interface IGeneralDao {
 
-    //Method sign that brings all the tasks
+    /**
+     * Method sign that gets all the tasks available
+     * @return List of tasks
+     */
     List<Entity> GetList();
 }

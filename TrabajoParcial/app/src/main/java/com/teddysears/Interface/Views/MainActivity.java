@@ -2,12 +2,8 @@ package com.teddysears.Interface.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.teddysears.Interface.Contracts.IMainActivityContract;
 import com.teddysears.Interface.Presenters.MainActivityPresenter;
@@ -35,8 +31,6 @@ public class MainActivity extends AppCompatActivity implements IMainActivityCont
         this.taskslist = findViewById(R.id.rv_main);
         this.floatingButton = findViewById(R.id.TaskCreationButton);
 
-        PrepareTaskCreationButton();
-
         //Passing this view to the presenter
         MainActivityPresenter presenter = new MainActivityPresenter(this);
 
@@ -59,17 +53,5 @@ public class MainActivity extends AppCompatActivity implements IMainActivityCont
         return this.floatingButton;
     }
 
-    /**
-     * Method to call the other activity
-     */
-    private void PrepareTaskCreationButton()
-    {
-        this.floatingButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), task_creation.class);
-                getApplicationContext().startActivity(intent);
-            }
-        });
-    }
+
 }
