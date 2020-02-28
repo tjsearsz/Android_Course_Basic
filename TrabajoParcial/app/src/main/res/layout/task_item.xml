@@ -1,37 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<LinearLayout android:layout_width="match_parent"
+<LinearLayout
+    android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <TextView
         android:id="@+id/Year"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:textStyle="bold"
-        />
+        style="@style/YearCardViewStyle"
+        android:text="supertyletext" />
 
     <TextView
         android:id="@+id/Date"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingTop="10dp"
-        android:paddingBottom="20dp"
-        android:textStyle="bold"
-        android:gravity="center"/>
+        style="@style/DateCardViewStyle"
+
+        android:text="MAYO 15" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardUseCompatPadding="true"
-        android:clickable="true"
-        android:focusable="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:id="@+id/cardView">
+        android:id="@+id/cardView"
+        style="@style/CardViewStyle">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -39,29 +26,17 @@
 
             <TextView
                 android:id="@+id/time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="5dp"
-                />
+                style="@style/GlobalViewStyleInCardView.Time" />
 
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:id="@+id/title"
-                android:layout_centerVertical="true"
-                android:layout_centerInParent="true"
-                />
+                style="@style/GlobalViewStyleInCardView.Title"
+                android:text="go to the church" />
 
             <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="false"
                 android:id="@+id/isCompleted"
-                android:layout_alignBaseline="@id/time"
-                android:layout_alignParentEnd="true"
-                android:layout_centerVertical="true"
-                android:background="@android:color/transparent"/>
+                style="@style/GlobalViewStyleInCardView.Checkbox"
+                android:layout_alignBaseline="@id/time" />
 
         </RelativeLayout>
     </androidx.cardview.widget.CardView>
