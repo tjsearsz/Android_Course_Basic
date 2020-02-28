@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.teddysears.Interface.Contracts.ITaskCreationContract;
@@ -20,9 +21,11 @@ import com.teddysears.Interface.R;
 public class task_creation extends AppCompatActivity implements ITaskCreationContract {
 
     //Attributes of the class
-    private Intent intent;
-    private Button CreateButton;
     private TextView TextTitle;
+    private EditText TaskName;
+    private EditText TaskDescription;
+    private EditText TaskDate;
+    private Button CreateButton;
     private CheckBox CompletedCheckBox;
 
     /**
@@ -35,9 +38,11 @@ public class task_creation extends AppCompatActivity implements ITaskCreationCon
         setContentView(R.layout.activity_task_creation);
 
         //Setting the values
-        this.intent = getIntent();
-        this.CreateButton = findViewById(R.id.CreateButton);
         this.TextTitle = findViewById(R.id.TaskTitle);
+        this.TaskName = findViewById(R.id.TaskName);
+        this.TaskDescription = findViewById(R.id.TaskDescription);
+        this.TaskDate = findViewById(R.id.TaskDate);
+        this.CreateButton = findViewById(R.id.CreateButton);
         this.CompletedCheckBox = findViewById(R.id.CompletedCheckBox);
 
         //Creating presenter
@@ -50,12 +55,7 @@ public class task_creation extends AppCompatActivity implements ITaskCreationCon
 
     @Override
     public Intent GetCurrentIntent() {
-        return this.intent;
-    }
-
-    @Override
-    public Button GetCreateButton() {
-        return this.CreateButton;
+        return getIntent();
     }
 
     @Override
@@ -69,8 +69,28 @@ public class task_creation extends AppCompatActivity implements ITaskCreationCon
     }
 
     @Override
+    public EditText GetTaskName() {
+        return this.TaskName;
+    }
+
+    @Override
+    public EditText GetTaskDescription() {
+        return this.TaskDescription;
+    }
+
+    @Override
+    public EditText GetTaskDate() {
+        return this.TaskDate;
+    }
+
+    @Override
     public CheckBox GetCompletedCheckBox() {
         return this.CompletedCheckBox;
+    }
+
+    @Override
+    public Button GetCreateButton() {
+        return this.CreateButton;
     }
 }
 

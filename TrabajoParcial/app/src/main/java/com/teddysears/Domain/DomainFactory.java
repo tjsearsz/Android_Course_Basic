@@ -12,10 +12,11 @@ public class DomainFactory {
      * @param title The title of the task
      * @param description The description of the class
      * @param date The date of this task
+     * @param alreadyFinished flag to determinate whether this task has been finished or not
      * @return A new Task
      */
-    public static Task GetTask(String title, String description, Date date)
+    public static Task GetTask(String title, String description, Date date, boolean alreadyFinished)
     {
-        return new Task(title, description, date);
+        return new Task(title, description, date, alreadyFinished);
     }
 }

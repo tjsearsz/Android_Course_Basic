@@ -76,17 +76,6 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
 
         //When we create a view holder, we need to perform this inflate
         View tasksView = LayoutInflater.from(parent.getContext()).inflate(R.layout.task_item, parent , false);
-
-        /*If we click one of the tasks, we will start the task_creation activity and send its
-        information */
-       /* tasksView.OnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(context, task_creation.class);
-                intent.putExtra("Title", List)
-            }
-        });*/
-
         return new MainActivityViewHolder(tasksView);
     }
 
@@ -115,11 +104,21 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
         title2.setText(TaskBeingManipulated.getTitle());
         title3.setText(TaskBeingManipulated.getTitle());
 
+        //Creating the listener used to instanciate the activity when the user presses a task
         CardView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                //We create a new intent
                 Intent intent = new Intent(context, task_creation.class);
-                intent.putExtra("Title", TaskBeingManipulated.getTitle());
+
+                //Passing parameters
+                intent.putExtra("Name", TaskBeingManipulated.getTitle());
+                intent.putExtra("Description", TaskBeingManipulated.getDescription());
+                intent.putExtra("Date", TaskBeingManipulated.getDate());
+                intent.putExtra("Finished", TaskBeingManipulated.isAlreadyFinished());
+
+                //Starting activity
                 CardView.getContext().startActivity(intent);
             }
         });

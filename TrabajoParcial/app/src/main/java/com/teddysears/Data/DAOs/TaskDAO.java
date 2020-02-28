@@ -1,9 +1,10 @@
 package com.teddysears.Data.DAOs;
 
 import com.teddysears.Data.IDao.IGeneralDao;
-import com.teddysears.Data.Utils;
 import com.teddysears.Domain.DomainFactory;
 import com.teddysears.Domain.Entity;
+import com.teddysears.Utility.DateUtils;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -28,13 +29,13 @@ public class TaskDAO implements IGeneralDao {
         List<Entity> list = new ArrayList<Entity>();
 
         list.add(DomainFactory.GetTask("Go to the beach",
-                "relaxing task", Utils.GetNewDateBasedOnString("26/02/2020")));
+                "relaxing task", DateUtils.StringToDate("26/02/2020 21:40"), true));
 
         list.add(DomainFactory.GetTask("go to the church",
-                "relaxing task", Utils.GetNewDateBasedOnString("26/02/2020")));
+                "relaxing task", DateUtils.StringToDate("26/02/2020 22:10"), false));
 
         list.add(DomainFactory.GetTask("Go to the nasa",
-                "relaxing task", Utils.GetNewDateBasedOnString("26/02/2020")));
+                "relaxing task", DateUtils.StringToDate("26/02/2020 09:12"), true));
 
         return list;
     }

@@ -1,8 +1,9 @@
 package com.teddysears.Interface.Presenters;
 
 import android.view.View;
-
 import com.teddysears.Interface.Contracts.ITaskCreationContract;
+import com.teddysears.Utility.DateUtils;
+import java.util.Date;
 
 /**
  * Presenter class of the Task Creation View
@@ -27,17 +28,37 @@ public class TaskCreationPresenter {
      */
     public void ValidateParametersReceived()
     {
+        //If this variable exists, it means that we need the information of a specific task
+        if (this.TaskCreation.GetCurrentIntent().getStringExtra("Name") != null) {
 
+            //Getting all the values of the task
+            String name = this.TaskCreation.GetCurrentIntent().getStringExtra("Name");
+            String description = this.TaskCreation.GetCurrentIntent()
+                                                            .getStringExtra("Description");
+            Date date = (Date)this.TaskCreation.GetCurrentIntent()
+                                                            .getSerializableExtra("Date");
+            boolean isFinished = this.TaskCreation.GetCurrentIntent()
+                                            .getBooleanExtra("Finished", false);
 
-        if (this.TaskCreation.GetCurrentIntent().getStringExtra("Title") != null) {
-            String title = this.TaskCreation.GetCurrentIntent().getStringExtra("Title");
+            //Filling the information obtained
+            this.TaskCreation.GetTextTitle().setText("Task Summary");
+            this.TaskCreation.GetTaskName().setText(name);
+            this.TaskCreation.GetTaskName().setKeyListener(null);
+            this.TaskCreation.GetTaskDescription().setText(description);
+            this.TaskCreation.GetTaskDescription().setKeyListener(null);
+            this.TaskCreation.GetTaskDate().setText(DateUtils.DateToString(date));
+            this.TaskCreation.GetTaskDate().setKeyListener(null);
+            this.TaskCreation.GetCompletedCheckBox().setChecked(isFinished);
+            this.TaskCreation.GetCompletedCheckBox().setKeyListener(null);
 
-            this.TaskCreation.GetTextTitle().setText(title);
-
+            //Hiding the create button since we are not creating a new one
             this.TaskCreation.GetCreateButton().setVisibility(View.GONE);
 
-            this.TaskCreation.GetCurrentIntent().removeExtra("Title");
-
+            //Removing the values obtained
+            this.TaskCreation.GetCurrentIntent().removeExtra("Name");
+            this.TaskCreation.GetCurrentIntent().removeExtra("Description");
+            this.TaskCreation.GetCurrentIntent().removeExtra("Date");
+            this.TaskCreation.GetCurrentIntent().removeExtra("Finished");
         }
     }
 }
