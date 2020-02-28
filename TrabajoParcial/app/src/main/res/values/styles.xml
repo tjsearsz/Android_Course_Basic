@@ -81,6 +81,7 @@
         <item name="android:background">@android:color/transparent</item>
     </style>
 
+    <!-- Specific style for the Date in CardView-->
     <style name="DateCardViewStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -89,12 +90,60 @@
         <item name="android:gravity">center</item>
     </style>
 
+    <!-- Specific style for the Year in CardView-->
     <style name="YearCardViewStyle">
         <item name="android:fontFamily">@font/luckiest_guy</item>
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:background">@color/YearColorBackground</item>
         <item name="android:textSize">30sp</item>
+    </style>
+
+    <!-- Specific style for the title of the task creation activity-->
+    <style name="TaskBuilderTextView">
+        <item name="android:background">@color/YearColorBackground</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/create_new_task</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <!-- Specific style for the name in the task creation activity-->
+    <style name="TaskCreationNameInput">
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:hint">@string/name_of_the_task</item>
+        <item name="android:gravity">center</item>
+        <item name="android:ems">20</item>
+    </style>
+
+    <!-- Specific style for the Description in the task creation activity-->
+    <style name="TaskDescriptionInput">
+        <item name="android:ems">10</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:hint">@string/description</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Specific style for the Date in the task creation activity-->
+    <style name="TaskCreationDateInput">
+        <item name="android:hint">@string/date_for_the_task</item>
+        <item name="android:ems">10</item>
+        <item name="android:inputType">date</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Specific style for the Checkbox in the task creation activity-->
+    <style name="TaskCreationCompletedInput">
+        <item name="android:button">@null</item>
+        <item name="android:drawableEnd">?android:attr/listChoiceIndicatorMultiple</item>
+        <item name="android:text">@string/completed</item>
+    </style>
+
+    <!-- Specific style for the create button in the task creation activity-->
+    <style name="CreateTaskButton">
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:text">@string/create</item>
+        <item name="android:textColor">@color/WhiteText</item>
     </style>
 
 </resources>

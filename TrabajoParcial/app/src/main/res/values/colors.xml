@@ -6,4 +6,5 @@
 
     <!-- Color used for the Background of the Year-->
     <color name="YearColorBackground">#8615BE71</color>
+    <color name="WhiteText">#FFFFFFFF</color>
 </resources>
