@@ -15,7 +15,9 @@ import com.teddysears.Domain.Entity;
 import com.teddysears.Domain.Task;
 import com.teddysears.Interface.R;
 import com.teddysears.Interface.Views.task_creation;
+import com.teddysears.Utility.DateUtils;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -44,6 +46,7 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
     public static class MainActivityViewHolder extends RecyclerView.ViewHolder {
 
         //Attributes (the element that are in the view and we will hold)
+        public TextView year;
         public TextView date;
         public TextView time;
         public TextView title;
@@ -56,6 +59,7 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
          */
         public MainActivityViewHolder(@NonNull View itemView) {
             super(itemView);
+            this.year = itemView.findViewById(R.id.Year);
             this.date = itemView.findViewById(R.id.Date);
             this.time = itemView.findViewById(R.id.time);
             this.title = itemView.findViewById(R.id.title);
@@ -91,6 +95,7 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
         final Task TaskBeingManipulated = (Task) listOfTasks.get(position);
 
         //Getting views from the holder
+        TextView yearOfTask = holder.year;
         TextView dateOfTask = holder.date;
         TextView timeOfTask = holder.time;
         TextView title = holder.title;
@@ -98,7 +103,9 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
         final View CardView = holder.CardView;
 
         //Setting the information
-
+        yearOfTask.setText(DateUtils.YearDateToString(TaskBeingManipulated.getDate()));
+        dateOfTask.setText(DateUtils.MonthDayDateToString(TaskBeingManipulated.getDate()));
+        timeOfTask.setText(DateUtils.TimeDateToString(TaskBeingManipulated.getDate()));
         title.setText(TaskBeingManipulated.getTitle());
         isCompleted.setChecked(TaskBeingManipulated.isAlreadyFinished());
 

@@ -29,13 +29,13 @@ public class TaskDAO implements IGeneralDao {
         List<Entity> list = new ArrayList<Entity>();
 
         list.add(DomainFactory.GetTask("Go to the beach",
-                "relaxing task", DateUtils.StringToDate("26/02/2020 21:40"), true));
+                "relaxing task", DateUtils.StringToDate("2020/02/26 21:40"), true));
 
         list.add(DomainFactory.GetTask("go to the church",
-                "relaxing task", DateUtils.StringToDate("26/02/2020 22:10"), false));
+                "relaxing task", DateUtils.StringToDate("2020/05/01 22:10"), false));
 
         list.add(DomainFactory.GetTask("Go to the nasa",
-                "relaxing task", DateUtils.StringToDate("26/02/2020 09:12"), true));
+                "relaxing task", DateUtils.StringToDate("2020/10/30 09:12"), true));
 
         return list;
     }

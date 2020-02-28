@@ -2,6 +2,7 @@ package com.teddysears.Interface.Presenters;
 
 import android.view.View;
 import com.teddysears.Interface.Contracts.ITaskCreationContract;
+import com.teddysears.Interface.R;
 import com.teddysears.Utility.DateUtils;
 import java.util.Date;
 
@@ -41,7 +42,7 @@ public class TaskCreationPresenter {
                                             .getBooleanExtra("Finished", false);
 
             //Filling the information obtained
-            this.TaskCreation.GetTextTitle().setText("Task Summary");
+            this.TaskCreation.GetTextTitle().setText(R.string.TASK_SUMMARY);
             this.TaskCreation.GetTaskName().setText(name);
             this.TaskCreation.GetTaskName().setKeyListener(null);
             this.TaskCreation.GetTaskDescription().setText(description);
