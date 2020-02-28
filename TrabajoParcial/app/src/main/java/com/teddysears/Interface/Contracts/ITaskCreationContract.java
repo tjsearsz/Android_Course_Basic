@@ -3,7 +3,10 @@ package com.teddysears.Interface.Contracts;
 import android.content.Context;
 import android.content.Intent;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
+
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 /**
  * Contract of the task_creation view
@@ -15,12 +18,6 @@ public interface ITaskCreationContract {
      * @return The current intent we are manipulationg
      */
     Intent GetCurrentIntent();
-
-    /**
-     * Get the Back button
-     * @return Back button of the activity
-     */
-    Button GetBackButton();
 
     /**
      * Get the Create Button
@@ -39,4 +36,10 @@ public interface ITaskCreationContract {
      * @return Title's TextView
      */
     TextView GetTextTitle();
+
+    /**
+     * Get the Completed CheckBox for the creation task button
+     * @return Completed CheckBox
+     */
+    CheckBox GetCompletedCheckBox();
 }

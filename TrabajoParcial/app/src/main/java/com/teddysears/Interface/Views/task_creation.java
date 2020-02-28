@@ -1,11 +1,13 @@
 package com.teddysears.Interface.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.TextView;
 
 import com.teddysears.Interface.Contracts.ITaskCreationContract;
@@ -20,11 +22,11 @@ public class task_creation extends AppCompatActivity implements ITaskCreationCon
     //Attributes of the class
     private Intent intent;
     private Button CreateButton;
-    private Button BackButton;
     private TextView TextTitle;
+    private CheckBox CompletedCheckBox;
 
     /**
-     * Method that gets created everytime the activity is being displayed
+     * Method that gets created every time the activity is being displayed
      * @param savedInstanceState Saved state of the instance
      */
     @Override
@@ -34,9 +36,9 @@ public class task_creation extends AppCompatActivity implements ITaskCreationCon
 
         //Setting the values
         this.intent = getIntent();
-        this.BackButton = findViewById(R.id.BackButton);
         this.CreateButton = findViewById(R.id.CreateButton);
-        this.TextTitle = findViewById(R.id.textView);
+        this.TextTitle = findViewById(R.id.TaskTitle);
+        this.CompletedCheckBox = findViewById(R.id.CompletedCheckBox);
 
         //Creating presenter
         TaskCreationPresenter presenter = new TaskCreationPresenter(this);
@@ -52,11 +54,6 @@ public class task_creation extends AppCompatActivity implements ITaskCreationCon
     }
 
     @Override
-    public Button GetBackButton() {
-        return this.BackButton;
-    }
-
-    @Override
     public Button GetCreateButton() {
         return this.CreateButton;
     }
@@ -69,6 +66,11 @@ public class task_creation extends AppCompatActivity implements ITaskCreationCon
     @Override
     public TextView GetTextTitle() {
         return this.TextTitle;
+    }
+
+    @Override
+    public CheckBox GetCompletedCheckBox() {
+        return this.CompletedCheckBox;
     }
 }
 
