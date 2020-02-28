@@ -1,5 +1,7 @@
 package com.teddysears.Interface.Adapters;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,6 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.teddysears.Domain.Entity;
 import com.teddysears.Domain.Task;
 import com.teddysears.Interface.R;
+import com.teddysears.Interface.Views.task_creation;
 
 import java.util.List;
 
@@ -24,14 +27,17 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
 
     //Attributes of the Adapter
     private List<Entity> listOfTasks;
+    private Context context;
 
     /**
      * Constructor that receives the list of tasks
      * @param ListOfTasks Tasks we will adapt to the RecyclerView
+     * @param context  The context of all the application
      */
-    public MainActivityAdapter(List<Entity> ListOfTasks)
+    public MainActivityAdapter(List<Entity> ListOfTasks, Context context)
     {
         this.listOfTasks = ListOfTasks;
+        this.context = context;
     }
 
     /**
@@ -43,16 +49,18 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
         public TextView title;
         public TextView title2;
         public TextView title3;
+        public View CardView;
 
         /**
          * Constructor of the hold class that will get all the elements
-         * @param itemView The title of the class
+         * @param itemView The view of the class
          */
         public MainActivityViewHolder(@NonNull View itemView) {
             super(itemView);
             this.title = itemView.findViewById(R.id.title);
             this.title2 = itemView.findViewById(R.id.title2);
             this.title3 = itemView.findViewById(R.id.title3);
+            this.CardView = itemView;
         }
     }
 
@@ -69,12 +77,15 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
         //When we create a view holder, we need to perform this inflate
         View tasksView = LayoutInflater.from(parent.getContext()).inflate(R.layout.task_item, parent , false);
 
-        tasksView.OnClickListener(new View.OnClickListener() {
+        /*If we click one of the tasks, we will start the task_creation activity and send its
+        information */
+       /* tasksView.OnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                
+                Intent intent = new Intent(context, task_creation.class);
+                intent.putExtra("Title", List)
             }
-        });
+        });*/
 
         return new MainActivityViewHolder(tasksView);
     }
@@ -88,7 +99,7 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
     public void onBindViewHolder(@NonNull MainActivityAdapter.MainActivityViewHolder holder, int position) {
 
         //Here, we obtain the task
-        Task TaskBeingManipulated = (Task) listOfTasks.get(position);
+        final Task TaskBeingManipulated = (Task) listOfTasks.get(position);
 
         //Add the title
         TextView title = holder.title;
@@ -97,10 +108,21 @@ public class MainActivityAdapter extends RecyclerView.Adapter<MainActivityAdapte
 
         TextView title3 = holder.title3;
 
+        final View CardView = holder.CardView;
+
         //Set text in the view
         title.setText(TaskBeingManipulated.getTitle());
         title2.setText(TaskBeingManipulated.getTitle());
         title3.setText(TaskBeingManipulated.getTitle());
+
+        CardView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, task_creation.class);
+                intent.putExtra("Title", TaskBeingManipulated.getTitle());
+                CardView.getContext().startActivity(intent);
+            }
+        });
     }
 
     /**
