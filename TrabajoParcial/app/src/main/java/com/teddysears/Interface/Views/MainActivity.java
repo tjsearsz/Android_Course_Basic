@@ -1,6 +1,7 @@
 package com.teddysears.Interface.Views;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.RecyclerView;
 import android.content.Context;
 import android.os.Bundle;
@@ -17,6 +18,7 @@ public class MainActivity extends AppCompatActivity implements IMainActivityCont
     //Attributes of the class
     private RecyclerView taskslist;
     private FloatingActionButton floatingButton;
+    private Toolbar mainToolbar;
 
     /**
      * Method to be performed when the view is being created
@@ -30,6 +32,12 @@ public class MainActivity extends AppCompatActivity implements IMainActivityCont
         //Asigning the values of the Views
         this.taskslist = findViewById(R.id.rv_main);
         this.floatingButton = findViewById(R.id.TaskCreationButton);
+        this.mainToolbar = findViewById(R.id.main_toolbar);
+
+        //Adding toolbar in the activity
+        setSupportActionBar(mainToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+        getSupportActionBar().setTitle(R.string.ToolbarTitle);
 
         //Passing this view to the presenter
         MainActivityPresenter presenter = new MainActivityPresenter(this);
@@ -51,6 +59,11 @@ public class MainActivity extends AppCompatActivity implements IMainActivityCont
     @Override
     public FloatingActionButton GetFloatingButton() {
         return this.floatingButton;
+    }
+
+    @Override
+    public Toolbar GetMainToolbar() {
+        return this.mainToolbar;
     }
 
 
