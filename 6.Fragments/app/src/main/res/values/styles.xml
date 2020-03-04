@@ -1,0 +1,149 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!-- App Bar Layout Style-->
+    <style name="AppBarLayoutStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <!-- Style for the Toolbar -->
+    <style name="ToolbarStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="layout_collapseMode">pin</item>
+        <item name="layout_scrollFlags">scroll|enterAlways</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+        <item name="popupTheme">@style/Theme.AppCompat.Light</item>
+        <item name="android:background">@color/colorPrimary</item>
+    </style>
+
+    <!-- Recycler View Container Style-->
+    <style name="RecyclerViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:scrollbars">vertical</item>
+        <item name="layout_behavior">@string/appbar_scrolling_view_behavior</item>
+    </style>
+
+    <!-- Floating Button style -->
+    <style name="FloatingButtonStyle">
+        <item name="android:layout_width"> wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_margin">20dp</item>
+        <item name="android:layout_gravity">bottom|end</item>
+        <item name="android:src">@drawable/ic_add_circle_outline_black_24dp</item>
+    </style>
+
+    <!-- CardView Style-->
+    <style name="CardViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:layout_marginLeft">10dp</item>
+        <item name="android:layout_marginRight">10dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+
+    </style>
+
+    <!-- General style that share elements inside CardView-->
+    <style name="GlobalViewStyleInCardView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <!-- Specific style for the time TextView in CardView-->
+    <style name="GlobalViewStyleInCardView.Time">
+        <item name="android:layout_marginStart">5dp</item>
+    </style>
+
+    <!-- Specific style for the Title TextView in CardView-->
+    <style name="GlobalViewStyleInCardView.Title">
+        <item name="android:layout_centerInParent">true</item>
+        <item name="android:ems">20</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Specific style for the CheckBox in CardView-->
+    <style name="GlobalViewStyleInCardView.Checkbox">
+        <item name="android:clickable">false</item>
+        <item name="android:layout_alignParentEnd">true</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <!-- Specific style for the Date in CardView-->
+    <style name="DateCardViewStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">casual</item>
+        <item name="android:paddingTop">20dp</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Specific style for the Year in CardView-->
+    <style name="YearCardViewStyle">
+        <item name="android:fontFamily">@font/luckiest_guy</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@color/YearColorBackground</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <!-- Specific style for the title of the task creation activity-->
+    <style name="TaskBuilderTextView">
+        <item name="android:background">@color/YearColorBackground</item>
+        <item name="android:fontFamily">sans-serif-black</item>
+        <item name="android:gravity">center</item>
+        <item name="android:text">@string/create_new_task</item>
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <!-- Specific style for the name in the task creation activity-->
+    <style name="TaskCreationNameInput">
+        <item name="android:inputType">textPersonName</item>
+        <item name="android:hint">@string/name_of_the_task</item>
+        <item name="android:gravity">center</item>
+        <item name="android:ems">20</item>
+    </style>
+
+    <!-- Specific style for the Description in the task creation activity-->
+    <style name="TaskDescriptionInput">
+        <item name="android:ems">10</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:hint">@string/description</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Specific style for the Date in the task creation activity-->
+    <style name="TaskCreationDateInput">
+        <item name="android:hint">@string/date_for_the_task</item>
+        <item name="android:ems">10</item>
+        <item name="android:inputType">date</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <!-- Specific style for the Checkbox in the task creation activity-->
+    <style name="TaskCreationCompletedInput">
+        <item name="android:button">@null</item>
+        <item name="android:drawableEnd">?android:attr/listChoiceIndicatorMultiple</item>
+        <item name="android:text">@string/completed</item>
+    </style>
+
+    <!-- Specific style for the create button in the task creation activity-->
+    <style name="CreateTaskButton">
+        <item name="android:background">@color/colorAccent</item>
+        <item name="android:text">@string/create</item>
+        <item name="android:textColor">@color/WhiteText</item>
+    </style>
+
+</resources>
