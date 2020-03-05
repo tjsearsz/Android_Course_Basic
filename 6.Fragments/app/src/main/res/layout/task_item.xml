@@ -5,14 +5,6 @@
     android:orientation="vertical"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <TextView
-        android:id="@+id/Year"
-        style="@style/YearCardViewStyle"/>
-
-    <TextView
-        android:id="@+id/Date"
-        style="@style/DateCardViewStyle"/>
-
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
         style="@style/CardViewStyle">

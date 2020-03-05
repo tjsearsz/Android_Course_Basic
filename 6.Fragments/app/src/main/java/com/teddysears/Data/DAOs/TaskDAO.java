@@ -3,9 +3,13 @@ package com.teddysears.Data.DAOs;
 import com.teddysears.Data.IDao.IGeneralDao;
 import com.teddysears.Domain.DomainFactory;
 import com.teddysears.Domain.Entity;
+import com.teddysears.Domain.Task;
 import com.teddysears.Utility.DateUtils;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 
 /**
  * DAO class to manage all the logic related to tasks
@@ -25,9 +29,12 @@ public class TaskDAO implements IGeneralDao {
      * @return All the tasks
      */
     @Override
-    public List<Entity> GetList() {
-        List<Entity> list = new ArrayList<Entity>();
+    public Map<String, Map<String,List<Entity>>> GetList() {
+        List<Task> list = new ArrayList<Task>();
 
+        /**
+         * HERE WE ASSUME GETTING THE INFORMATION FROM THE DATABASE
+         */
         //Same years / different months / different days / different time
         list.add(DomainFactory.GetTask("Go to the beach",
                 "Take sun and enjoy the calm ocean along with my friends!",
@@ -61,6 +68,41 @@ public class TaskDAO implements IGeneralDao {
                 "Finally Hoobastank will be playing in my city, I cannot wait!",
                 DateUtils.StringToDate("2021/07/23 20:27"), false));
 
-        return list;
+        //Preparing information in a tree set
+        Map<String, Map<String, List<Entity>>> response = new TreeMap<>();
+
+        //Iterating through every element obtained in "database"
+        for (Task aux : list)
+        {
+            //We need to look that exists task within that year
+            Map<String, List<Entity>> value = response.get(DateUtils.YearDateToString(aux.getDate()));
+
+            List listaux;
+
+            //If value is null it means it doesn't exist a task for this year yet
+            if(value == null){
+                value = new TreeMap<>();
+                listaux = new ArrayList<Entity>();
+
+
+            }
+            else
+            {
+                listaux = value.get(DateUtils.MonthDayDateToString(aux.getDate()));
+
+                if(listaux == null)
+                    listaux = new ArrayList<Entity>();
+
+            }
+
+            listaux.add(aux);
+
+            value.put(DateUtils.MonthDayDateToString(aux.getDate()), listaux);
+
+            //Updating the response
+            response.put((DateUtils.YearDateToString(aux.getDate())), value);
+        }
+
+        return response;
     }
 }

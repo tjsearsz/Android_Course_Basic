@@ -43,11 +43,14 @@ public class MainActivityPresenter {
     public void ListAllTasks()
     {
         //Performing the action
-        ICommand<Entity, List<Entity>> command = CommandFactory.CreateNewGetAllTasksCommand();
-        List<Entity> tasks = command.execute(null);
+        ICommand<Entity, List<Object>> command = CommandFactory.CreateNewGetAllTasksCommand();
+
+        List<Object> tasks = command.execute(null);
 
         //Creating an adapter for the ReyclerView
         MainActivityAdapter adapter = new MainActivityAdapter(tasks);
+
+        activity.GetRecyclerView().setHasFixedSize(true);
 
         //Setting the adapter
         activity.GetRecyclerView().setAdapter(adapter);

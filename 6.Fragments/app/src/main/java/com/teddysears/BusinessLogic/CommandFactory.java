@@ -12,7 +12,7 @@ public class CommandFactory {
      * Method to instantiate the GetAllTasksCommand
      * @return The command formerly mentioned
      */
-    public static ICommand<Entity, List<Entity>> CreateNewGetAllTasksCommand()
+    public static ICommand<Entity, List<Object>> CreateNewGetAllTasksCommand()
     {
         return new GetAllTasksCommand();
     }
