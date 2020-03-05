@@ -1,4 +1,4 @@
-package com.teddysears.Interface.Views;
+package com.teddysears.Interface.Views.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;

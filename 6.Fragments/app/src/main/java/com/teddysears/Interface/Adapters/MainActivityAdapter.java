@@ -8,10 +8,9 @@ import android.widget.CheckBox;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import com.teddysears.Domain.Entity;
 import com.teddysears.Domain.Task;
 import com.teddysears.Interface.R;
-import com.teddysears.Interface.Views.task_creation;
+import com.teddysears.Interface.Views.Activities.task_creation;
 import com.teddysears.Utility.DateUtils;
 import java.util.List;
 
@@ -184,8 +183,6 @@ public class MainActivityAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                     }
                 });
 
-                //We will add an extra space so floating button can be seen nicely
-                //AddSpaceAfterLastRow(position, CardView);
                 break;
 
             case 1:
@@ -210,18 +207,6 @@ public class MainActivityAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
                 break;
 
         }
-
-
-
-        /* Implementing method to display/hide TextViews depending whether
-         year or month/year are the same */
-       // DateTimeValidations(TaskBeingManipulated, holder, position);
-
-
-
-
-
-
 
     }
 
@@ -250,75 +235,5 @@ public class MainActivityAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         else
             return 3;
 
-    }
-
-    /**
-     * Method we will use to display/hide the years, month/day depending if they are the same
-     * @param taskBeingManipulated The task we will use
-     * @param holder The Holder of this view
-     */
-    private void DateTimeValidations(Task taskBeingManipulated, MainActivityViewHolder holder, int position) {
-
-
-        TextView dateOfTask = holder.date;
-       // TextView yearOfTask = holder.year;
-
-        /* If the current year is the same as the last one, we will not display it again
-         */
-        if(!this.year.equals(DateUtils.YearDateToString(taskBeingManipulated.getDate()))){
-
-            //Setting the value in the text view and saving the variable
-           // yearOfTask.setText(DateUtils.YearDateToString(taskBeingManipulated.getDate()));
-            this.year = DateUtils.YearDateToString(taskBeingManipulated.getDate());
-
-            //Since we found a different year, this variable needs to be restarted
-            this.yearmonth = "";
-        }
-        else
-        {
-            //Removing the view if is already repeated
-         //   ViewGroup temp = ((ViewGroup)yearOfTask.
-             //       getParent());
-
-           // if(temp != null)
-           //        temp.
-           //         removeView(yearOfTask);
-
-        }
-
-        /*
-         * If the current month/day is the same as the last one, we will not display it again
-         */
-        if(!this.yearmonth.equals(DateUtils.MonthDayDateToString(taskBeingManipulated.getDate())))
-        {
-            //Setting the value in the text view and saving the variable
-            dateOfTask.setText(DateUtils.MonthDayDateToString(taskBeingManipulated.getDate()));
-            this.yearmonth = DateUtils.MonthDayDateToString(taskBeingManipulated.getDate());
-        }
-        else
-        {
-            ViewGroup temp2 = ((ViewGroup)dateOfTask.getParent());
-
-            //Removing the view if is already repeated
-            //if(temp2 != null)
-                temp2.removeView(dateOfTask);
-        }
-    }
-
-    /**
-     * Method for adding an empty row after last position of the list
-     * @param position The position we are currently iterating
-     * @param cardView The main CardView
-     */
-    private void AddSpaceAfterLastRow(int position, View cardView) {
-
-        /*If we are in the last position and the list contains at least one item, we will add an
-        empty View */
-        if(getItemCount()> 0 && position + 1 == getItemCount())
-        {
-            View view = new TextView(cardView.getContext());
-            view.setPadding(0,200,0,0);
-            ((ViewGroup) cardView.getParent()).addView(view);
-        }
     }
 }

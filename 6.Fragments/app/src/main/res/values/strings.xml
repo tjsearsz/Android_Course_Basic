@@ -8,4 +8,7 @@
     <string name="TASK_SUMMARY">Task Summary</string>
     <string name="ToolbarTitle">Task Task Revolution 4th Mix</string>
     <string name="date_for_the_task">Date</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

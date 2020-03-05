@@ -9,8 +9,7 @@ import com.teddysears.BusinessLogic.ICommand;
 import com.teddysears.Domain.Entity;
 import com.teddysears.Interface.Adapters.MainActivityAdapter;
 import com.teddysears.Interface.Contracts.IMainActivityContract;
-import com.teddysears.Interface.R;
-import com.teddysears.Interface.Views.task_creation;
+import com.teddysears.Interface.Views.Activities.task_creation;
 import java.util.List;
 
 /**

@@ -1,16 +1,11 @@
-package com.teddysears.Interface.Views;
+package com.teddysears.Interface.Views.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.constraintlayout.widget.ConstraintLayout;
-
+import androidx.fragment.app.FragmentManager;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.EditText;
-import android.widget.TextView;
-
+import android.widget.FrameLayout;
 import com.teddysears.Interface.Contracts.ITaskCreationContract;
 import com.teddysears.Interface.Presenters.TaskCreationPresenter;
 import com.teddysears.Interface.R;
@@ -21,12 +16,8 @@ import com.teddysears.Interface.R;
 public class task_creation extends AppCompatActivity implements ITaskCreationContract {
 
     //Attributes of the class
-    private TextView TextTitle;
-    private EditText TaskName;
-    private EditText TaskDescription;
-    private EditText TaskDate;
-    private Button CreateButton;
-    private CheckBox CompletedCheckBox;
+    private FrameLayout taskLayout;
+    private FragmentManager transaction;
 
     /**
      * Method that gets created every time the activity is being displayed
@@ -38,12 +29,8 @@ public class task_creation extends AppCompatActivity implements ITaskCreationCon
         setContentView(R.layout.activity_task_creation);
 
         //Setting the values
-        this.TextTitle = findViewById(R.id.TaskTitle);
-        this.TaskName = findViewById(R.id.TaskName);
-        this.TaskDescription = findViewById(R.id.TaskDescription);
-        this.TaskDate = findViewById(R.id.TaskDate);
-        this.CreateButton = findViewById(R.id.CreateButton);
-        this.CompletedCheckBox = findViewById(R.id.CompletedCheckBox);
+        this.taskLayout = findViewById(R.id.CreationFrame);
+        this.transaction = getSupportFragmentManager();
 
         //Creating presenter
         TaskCreationPresenter presenter = new TaskCreationPresenter(this);
@@ -64,33 +51,13 @@ public class task_creation extends AppCompatActivity implements ITaskCreationCon
     }
 
     @Override
-    public TextView GetTextTitle() {
-        return this.TextTitle;
+    public FrameLayout GetTaskLayout() {
+        return this.taskLayout;
     }
 
     @Override
-    public EditText GetTaskName() {
-        return this.TaskName;
-    }
-
-    @Override
-    public EditText GetTaskDescription() {
-        return this.TaskDescription;
-    }
-
-    @Override
-    public EditText GetTaskDate() {
-        return this.TaskDate;
-    }
-
-    @Override
-    public CheckBox GetCompletedCheckBox() {
-        return this.CompletedCheckBox;
-    }
-
-    @Override
-    public Button GetCreateButton() {
-        return this.CreateButton;
+    public FragmentManager GetTransaction() {
+        return this.transaction;
     }
 }
 

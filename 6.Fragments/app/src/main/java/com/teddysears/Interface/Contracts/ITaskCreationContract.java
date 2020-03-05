@@ -5,7 +5,11 @@ import android.content.Intent;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.TextView;
+
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 /**
  * Contract of the task_creation view
@@ -25,40 +29,14 @@ public interface ITaskCreationContract {
     Context GetApplicationContext();
 
     /**
-     * Get the TextView of the title
-     * @return Title's TextView
+     * Get the Frame layout where the task information will be
      */
-    TextView GetTextTitle();
+    FrameLayout GetTaskLayout();
 
     /**
-     * Get the4 Name of the task
-     * @return EditText with the name of the task
+     * Getter for the manager used to change fragments
+     * @return the transaction used to change fragments
      */
-    EditText GetTaskName();
-
-    /**
-     * Get the description of the task
-     * @return EditText with the description of the task
-     */
-    EditText GetTaskDescription();
-
-    /**
-     * Get the Date of the task
-     * @return EditText with the date of the task
-     */
-    EditText GetTaskDate();
-
-    /**
-     * Get the Completed CheckBox for the creation task button
-     * @return Completed CheckBox
-     */
-    CheckBox GetCompletedCheckBox();
-
-    /**
-     * Get the Create Button
-     * @return Create button of the activity
-     */
-    Button GetCreateButton();
-
+    FragmentManager GetTransaction();
 
 }

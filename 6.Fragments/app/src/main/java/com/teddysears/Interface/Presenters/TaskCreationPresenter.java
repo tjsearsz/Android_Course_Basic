@@ -1,8 +1,15 @@
 package com.teddysears.Interface.Presenters;
 
+import android.os.Bundle;
 import android.view.View;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
+
 import com.teddysears.Interface.Contracts.ITaskCreationContract;
 import com.teddysears.Interface.R;
+import com.teddysears.Interface.Views.Activities.Fragments.FragmentCreationTask;
 import com.teddysears.Utility.DateUtils;
 import java.util.Date;
 
@@ -29,8 +36,14 @@ public class TaskCreationPresenter {
      */
     public void ValidateParametersReceived()
     {
+
+        //We create the fragment
+        Fragment taskFragment = new FragmentCreationTask();
+
         //If this variable exists, it means that we need the information of a specific task
         if (this.TaskCreation.GetCurrentIntent().getStringExtra("Name") != null) {
+
+            Bundle parameters = new Bundle();
 
             //Getting all the values of the task
             String name = this.TaskCreation.GetCurrentIntent().getStringExtra("Name");
@@ -41,19 +54,12 @@ public class TaskCreationPresenter {
             boolean isFinished = this.TaskCreation.GetCurrentIntent()
                                             .getBooleanExtra("Finished", false);
 
-            //Filling the information obtained
-            this.TaskCreation.GetTextTitle().setText(R.string.TASK_SUMMARY);
-            this.TaskCreation.GetTaskName().setText(name);
-            this.TaskCreation.GetTaskName().setKeyListener(null);
-            this.TaskCreation.GetTaskDescription().setText(description);
-            this.TaskCreation.GetTaskDescription().setKeyListener(null);
-            this.TaskCreation.GetTaskDate().setText(DateUtils.DateToString(date));
-            this.TaskCreation.GetTaskDate().setKeyListener(null);
-            this.TaskCreation.GetCompletedCheckBox().setChecked(isFinished);
-            this.TaskCreation.GetCompletedCheckBox().setKeyListener(null);
+            parameters.putString("Name", name);
+            parameters.putString("Description", description);
+            parameters.putSerializable("Date", date);
+            parameters.putBoolean("Finished", isFinished);
 
-            //Hiding the create button since we are not creating a new one
-            this.TaskCreation.GetCreateButton().setVisibility(View.GONE);
+            taskFragment.setArguments(parameters);
 
             //Removing the values obtained
             this.TaskCreation.GetCurrentIntent().removeExtra("Name");
@@ -61,5 +67,12 @@ public class TaskCreationPresenter {
             this.TaskCreation.GetCurrentIntent().removeExtra("Date");
             this.TaskCreation.GetCurrentIntent().removeExtra("Finished");
         }
+
+        //Transaction used to change fragments
+        FragmentTransaction transaction = TaskCreation.GetTransaction().beginTransaction();
+        transaction.add(R.id.CreationFrame, taskFragment);
+
+        //Changing the fragment
+        transaction.commit();
     }
 }
