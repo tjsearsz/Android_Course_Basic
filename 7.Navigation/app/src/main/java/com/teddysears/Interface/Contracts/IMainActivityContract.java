@@ -7,6 +7,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
@@ -43,4 +44,10 @@ public interface IMainActivityContract {
      * @return The Fragment Manager
      */
     FragmentManager GetSupportFragmentManager();
+
+    /**
+     * Getter for the navigation view component
+     * @return The navigation View component
+     */
+    BottomNavigationView GetNavigationView();
 }

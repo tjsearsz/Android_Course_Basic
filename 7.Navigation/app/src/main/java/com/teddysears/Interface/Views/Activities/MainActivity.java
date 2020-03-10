@@ -1,5 +1,6 @@
 package com.teddysears.Interface.Views.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentManager;
@@ -7,6 +8,10 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.teddysears.Interface.Contracts.IMainActivityContract;
 import com.teddysears.Interface.Presenters.MainActivityPresenter;
@@ -15,13 +20,14 @@ import com.teddysears.Interface.R;
 /**
  * Class that represents the View of the MainActivity
  */
-public class MainActivity extends AppCompatActivity implements IMainActivityContract {
+public class MainActivity extends AppCompatActivity implements IMainActivityContract, BottomNavigationView.OnNavigationItemSelectedListener {
 
     //Attributes of the class
     private FloatingActionButton floatingButton;
     private Toolbar mainToolbar;
     private ViewPager viewPager;
     private FragmentManager fragmentManager;
+    private BottomNavigationView navigationView;
 
     /**
      * Method to be performed when the view is being created
@@ -37,6 +43,45 @@ public class MainActivity extends AppCompatActivity implements IMainActivityCont
         this.mainToolbar = findViewById(R.id.main_toolbar);
         this.viewPager = findViewById(R.id.vp_main);
         this.fragmentManager = getSupportFragmentManager();
+
+        //Finding the navigation view
+        this.navigationView = findViewById(R.id.bn_main);
+
+        //Method to switch between fragments
+        this.navigationView.setOnNavigationItemSelectedListener(this);
+
+        this.navigationView.getMenu().add(Menu.NONE, 1,
+                Menu.NONE , "Tareas").setIcon(R.drawable.ic_list_white_24dp);
+
+
+        //This methods triggers when the view Pager changes (fragment moves)
+        this.viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+
+                //Here we change the icon
+                switch (position)
+                {
+                    case 0:
+                        navigationView.getMenu().findItem(1).setChecked(true);
+                        break;
+
+                    case 1:
+                        navigationView.getMenu().findItem(2).setChecked(true);
+                        break;
+                }
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
 
         //Adding toolbar in the activity
         setSupportActionBar(mainToolbar);
@@ -72,5 +117,33 @@ public class MainActivity extends AppCompatActivity implements IMainActivityCont
         return this.fragmentManager;
     }
 
+    @Override
+    public BottomNavigationView GetNavigationView() {
+        return this.navigationView;
+    }
 
+
+    /**
+     * Method to switch between fragments when we select an option in the bottom navigation
+     * @param menuItem the menu item we are selection
+     * @return true if the method succeeded
+     */
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+
+        /**
+         * depending in the id of the element we will switch between items
+         */
+        switch (menuItem.getItemId())
+        {
+            //First ID means first item and so on
+            case 1:
+
+                //Switching to the first element
+                this.viewPager.setCurrentItem(0);
+                break;
+        }
+
+        return true;
+    }
 }

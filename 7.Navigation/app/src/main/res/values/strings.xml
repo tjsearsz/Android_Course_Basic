@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FragmentClass</string>
+    <string name="app_name">navigationClass</string>
     <string name="create_new_task">Task Builder</string>
     <string name="name_of_the_task">Name</string>
     <string name="description">Description</string>

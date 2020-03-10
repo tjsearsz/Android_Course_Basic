@@ -30,6 +30,8 @@
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:scrollbars">vertical</item>
+        <item name="android:paddingBottom">150dp</item>
+        <item name="android:clipToPadding">false</item>
         <item name="layout_behavior">@string/appbar_scrolling_view_behavior</item>
     </style>
 

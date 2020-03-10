@@ -25,17 +25,12 @@ public class MainActivityAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     //Attributes of the Adapter
     private List<Object> listOfTasks;
 
-    private String year = "";
-    private String yearmonth = "";
-
     /**
      * Constructor that receives the list of tasks
      * @param ListOfTasks Tasks we will adapt to the RecyclerView
      */
     public MainActivityAdapter(List<Object> ListOfTasks)
     {
-        //Adding a dummy value which will be the empty view
-        ListOfTasks.add(new Object());
         this.listOfTasks = ListOfTasks;
     }
 
@@ -87,17 +82,6 @@ public class MainActivityAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         }
     }
 
-    public static class FooterViewHolder extends RecyclerView.ViewHolder
-    {
-        public View footer;
-
-        public FooterViewHolder(View itemView)
-        {
-            super(itemView);
-            this.footer = itemView.findViewById(R.id.footer);
-        }
-    }
-
     /**
      * Method in charge to create the Holder of this Adapter
      * @param parent The class that represents the parent (principal of this class)
@@ -122,17 +106,11 @@ public class MainActivityAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             itemView = inflater.inflate(R.layout.task_item_header, parent , false);
             return new YearViewHolder(itemView);
         }
-        else if(viewType == 2)
+        else
         {
             itemView = inflater.inflate(R.layout.task_item_date, parent , false);
             return new MonthViewHolder(itemView);
         }
-        else
-        {
-            itemView = inflater.inflate(R.layout.task_footer, parent , false);
-            return new FooterViewHolder(itemView);
-        }
-
 
     }
 
@@ -230,10 +208,8 @@ public class MainActivityAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             return 0;
         else if (listOfTasks.get(position) instanceof Integer)
             return 1;
-        else if (listOfTasks.get(position) instanceof String)
-            return 2;
         else
-            return 3;
+            return 2;
 
     }
 }
