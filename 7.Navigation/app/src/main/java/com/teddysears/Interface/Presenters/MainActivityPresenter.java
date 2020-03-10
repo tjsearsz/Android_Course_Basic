@@ -2,15 +2,10 @@ package com.teddysears.Interface.Presenters;
 
 import android.content.Intent;
 import android.view.View;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import com.teddysears.BusinessLogic.CommandFactory;
-import com.teddysears.BusinessLogic.ICommand;
-import com.teddysears.Domain.Entity;
-import com.teddysears.Interface.Adapters.MainActivityAdapter;
+import com.teddysears.Interface.Adapters.ViewPagerAdapter;
 import com.teddysears.Interface.Contracts.IMainActivityContract;
+import com.teddysears.Interface.Views.Activities.Fragments.ListFragment;
 import com.teddysears.Interface.Views.Activities.task_creation;
-import java.util.List;
 
 /**
  * Presenter of the Main Activity View
@@ -31,32 +26,23 @@ public class MainActivityPresenter {
         //Preparing floating button with the intent action
         PrepareTaskCreationButton();
 
-
+        //Preparing Fragments
+        PrepareViewPager();
     }
 
-
-
     /**
-     * Method that gets all the available tasks
+     * Method to initialize the view pager with fragments
      */
-    public void ListAllTasks()
-    {
-        //Performing the action
-        ICommand<Entity, List<Object>> command = CommandFactory.CreateNewGetAllTasksCommand();
+    private void PrepareViewPager() {
 
-        List<Object> tasks = command.execute(null);
+        //Creating the adapter for the viewPager
+        ViewPagerAdapter adapter = new ViewPagerAdapter(this.activity.GetSupportFragmentManager());
 
-        //Creating an adapter for the ReyclerView
-        MainActivityAdapter adapter = new MainActivityAdapter(tasks);
-
-        activity.GetRecyclerView().setHasFixedSize(true);
+        //Adding elements in the list
+        adapter.addFragment(new ListFragment(), "Task List");
 
         //Setting the adapter
-        activity.GetRecyclerView().setAdapter(adapter);
-
-        //Creating a new Linear Layout for the list
-        RecyclerView.LayoutManager manager = new LinearLayoutManager(activity.GetCurrentContext());
-        activity.GetRecyclerView().setLayoutManager(manager);
+        this.activity.GetViewPager().setAdapter(adapter);
     }
 
     /**

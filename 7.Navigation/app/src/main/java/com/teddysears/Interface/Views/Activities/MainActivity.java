@@ -2,7 +2,9 @@ package com.teddysears.Interface.Views.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.fragment.app.FragmentManager;
+import androidx.viewpager.widget.ViewPager;
+
 import android.content.Context;
 import android.os.Bundle;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -16,9 +18,10 @@ import com.teddysears.Interface.R;
 public class MainActivity extends AppCompatActivity implements IMainActivityContract {
 
     //Attributes of the class
-    private RecyclerView taskslist;
     private FloatingActionButton floatingButton;
     private Toolbar mainToolbar;
+    private ViewPager viewPager;
+    private FragmentManager fragmentManager;
 
     /**
      * Method to be performed when the view is being created
@@ -30,9 +33,10 @@ public class MainActivity extends AppCompatActivity implements IMainActivityCont
         setContentView(R.layout.activity_main);
 
         //Asigning the values of the Views
-        this.taskslist = findViewById(R.id.rv_main);
         this.floatingButton = findViewById(R.id.TaskCreationButton);
         this.mainToolbar = findViewById(R.id.main_toolbar);
+        this.viewPager = findViewById(R.id.vp_main);
+        this.fragmentManager = getSupportFragmentManager();
 
         //Adding toolbar in the activity
         setSupportActionBar(mainToolbar);
@@ -41,14 +45,6 @@ public class MainActivity extends AppCompatActivity implements IMainActivityCont
 
         //Passing this view to the presenter
         MainActivityPresenter presenter = new MainActivityPresenter(this);
-
-        //Getting all the tasks
-        presenter.ListAllTasks();
-    }
-
-    @Override
-    public RecyclerView GetRecyclerView() {
-        return taskslist;
     }
 
     @Override
@@ -64,6 +60,16 @@ public class MainActivity extends AppCompatActivity implements IMainActivityCont
     @Override
     public Toolbar GetMainToolbar() {
         return this.mainToolbar;
+    }
+
+    @Override
+    public ViewPager GetViewPager() {
+        return this.viewPager;
+    }
+
+    @Override
+    public FragmentManager GetSupportFragmentManager() {
+        return this.fragmentManager;
     }
 
 
