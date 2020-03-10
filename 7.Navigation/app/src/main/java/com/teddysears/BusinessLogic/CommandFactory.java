@@ -16,4 +16,13 @@ public class CommandFactory {
     {
         return new GetAllTasksCommand();
     }
+
+    /**
+     * Method to instantiate the GetFavoriteTasksCommand
+     * @return The command formerly mentioned
+     */
+    public static ICommand<Entity, List<Object>> CreateNewGetFavoriteTasksCommand()
+    {
+        return new GetFavoriteTasksCommand();
+    }
 }

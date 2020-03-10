@@ -53,6 +53,9 @@ public class MainActivity extends AppCompatActivity implements IMainActivityCont
         this.navigationView.getMenu().add(Menu.NONE, 1,
                 Menu.NONE , "Tareas").setIcon(R.drawable.ic_list_white_24dp);
 
+        this.navigationView.getMenu().add(Menu.NONE, 2,
+                Menu.NONE , "Favoritos").setIcon(R.drawable.ic_star_white_24dp);
+
 
         //This methods triggers when the view Pager changes (fragment moves)
         this.viewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
@@ -141,6 +144,12 @@ public class MainActivity extends AppCompatActivity implements IMainActivityCont
 
                 //Switching to the first element
                 this.viewPager.setCurrentItem(0);
+                break;
+
+            case 2:
+
+                //Switching to the first element
+                this.viewPager.setCurrentItem(1);
                 break;
         }
 

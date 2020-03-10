@@ -3,29 +3,32 @@ package com.teddysears.BusinessLogic;
 import com.teddysears.Data.DAOFactory;
 import com.teddysears.Data.IDao.IGeneralDao;
 import com.teddysears.Domain.Entity;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 /**
- * Command action for listing all the available tasks
+ * Command action for listing all the favorite tasks
  */
-public class GetAllTasksCommand implements ICommand<Entity, List<Object>> {
+public class GetFavoriteTasksCommand implements ICommand<Entity, List<Object>> {
 
     /**
-     * Empty constructor of the class
+     * Empty constructor
      */
-    public GetAllTasksCommand(){}
+    public GetFavoriteTasksCommand()
+    {
+
+    }
 
     /**
      * Method that executes the command
-     * @param parameter the parameter we need to use to execute the action
-     * @return List with all the tasks, also with year and month
+     * @param entity the parameter we need to use to execute the action
+     * @return List of all the favorite tasks also with year and month
      */
     @Override
-    public List<Object> execute(Entity parameter) {
-        IGeneralDao DAOTasks = DAOFactory.CreateDAOTasks();
+    public List<Object> execute(Entity entity) {
+
+        IGeneralDao DAOTasks = DAOFactory.CreateFavoriteDAOTasks();
 
         //Getting all tasks with their dates
         Map<String, Map<String,List<Entity>>> tasks = DAOTasks.GetList();

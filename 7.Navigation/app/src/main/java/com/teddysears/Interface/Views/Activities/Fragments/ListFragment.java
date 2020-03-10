@@ -46,9 +46,35 @@ public class ListFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_list, container, false);
         this.taskslist = root.findViewById(R.id.rv_main);
 
-        ListAllTasks();
+        //If this variable is not empty, it means we will list only the favorites
+        if(getArguments()== null)
+            ListAllTasks();
+        else
+        {
+            ListFavoriteTasks();
+            getArguments().clear();
+        }
 
         return root;
+    }
+
+    private void ListFavoriteTasks() {
+
+        //Performing the action
+        ICommand<Entity, List<Object>> command = CommandFactory.CreateNewGetFavoriteTasksCommand();
+        List<Object> tasks = command.execute(null);
+
+        //Creating an adapter for the ReyclerView
+        MainActivityAdapter adapter = new MainActivityAdapter(tasks);
+
+        this.taskslist.setHasFixedSize(true);
+
+        //Setting the adapter
+        this.taskslist.setAdapter(adapter);
+
+        //Creating a new Linear Layout for the list
+        RecyclerView.LayoutManager manager = new LinearLayoutManager(getContext());
+        this.taskslist.setLayoutManager(manager);
     }
 
     /**
