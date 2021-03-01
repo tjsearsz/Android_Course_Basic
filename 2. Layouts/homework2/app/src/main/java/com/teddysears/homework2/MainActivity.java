@@ -17,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
         setViewAndChildrenEnabled(findViewById(R.id.cardid2),false);
     }
 
+
+
     private static void setViewAndChildrenEnabled(View view, boolean enabled) {
         view.setEnabled(enabled);
         if (view instanceof ViewGroup) {
